@@ -7,8 +7,7 @@ class Heap:
     
     def build_heap(heap, n):
         HeapSize = int(n // 2 -1)
-        i  = HeapSize
-        swaps = 0
+        i = HeapSize
         while i > -1:
             Heap.min_heap(heap, i)                         
             i = i - 1
