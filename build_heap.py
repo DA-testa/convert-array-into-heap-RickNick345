@@ -1,6 +1,4 @@
 # python3
-
-
 import math   
 class Heap:
     swap = []
@@ -40,20 +38,16 @@ class Heap:
             print(x[0],x[1])
     
 def main():
-    key = input()
-    if key == "I":
-        n = int(input())
-        data = list(map(int, input().split()))
-    elif key == "F":
-        fileName = input("Input file name:")
+    #key = input()
+    #if key == "F":
+     #   fileName = input("Input file name:")
         #fileName = "test.txt"
-        f = open(fileName, "r")
-        n = int(f.readline())
-        data = list(map(int, f.readline().split()))
-    else:
-        print("Input ERROR")        
-            
-
+      #  f = open(fileName, "r")
+       # n = int(f.readline())
+       # data = list(map(int, f.readline().split()))
+    n = int(input())
+    data = list(map(int, input().split()))    
+       
     assert len(data) == n
 
     Heap.build_heap(data, n)
