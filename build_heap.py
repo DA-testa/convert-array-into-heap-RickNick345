@@ -38,14 +38,16 @@ class Heap:
     
 def main():
     #key = input()
-    #if key == "F":
-     #   fileName = input("Input file name:")
+    if key[0] == "F":
+        fileName = input("Input file name:")
         #fileName = "test.txt"
-      #  f = open(fileName, "r")
-       # n = int(f.readline())
-       # data = list(map(int, f.readline().split()))
-    n = int(input())
-    data = list(map(int, input().split()))    
+        f = open(fileName, "r")
+        n = int(f.readline())
+        data = list(map(int, f.readline().split()))
+    
+    elif key[0] == "I":
+        n = int(input())
+        data = list(map(int, input().split()))    
        
     assert len(data) == n
 
