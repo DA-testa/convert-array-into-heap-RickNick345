@@ -1,41 +1,58 @@
 # python3
-
-
-def build_heap(data):
-    swaps = []
-    # TODO: Creat heap and heap sort
-    # try to achieve  O(n) and not O(n2)
-
-
-    return swaps
-
-
-def main():
+import math   
+class Heap:
+    swap = []
+    swaps = list(swap)
     
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
+    
+    def build_heap(heap, n):
+        HeapSize = int(n // 2 -1)
+        i = HeapSize
+        while i > -1:
+            Heap.min_heap(heap, i)                         
+            i = i - 1
+        return heap
 
 
-    # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
+    def min_heap(heap, i):
+        n = len(heap)
+        left = int(2 * i + 1)
+        right = int(2 * i + 2)
+        if left < n and heap[left] < heap[i]:
+            min = left
+        else:
+            min = i    
+        if right < n and heap[right] < heap[min]:
+            min = right
+        if min != i:
+            temp = heap[i]
+            Heap.swaps.append([i, min])
+            heap[i] = heap[min]
+            heap[min] = temp
+            Heap.min_heap(heap, min)
 
-    # checks if lenght of data is the same as the said lenght
+    def print_swaps():
+        print (len(Heap.swaps))
+        for x in Heap.swaps:
+            print(x[0],x[1])
+    
+def main():
+    key = input()
+    if key[0] == "F":
+        fileName = input("Input file name:")
+        fileName = "tests/" + fileName
+        f = open(fileName, "r")
+        n = int(f.readline())
+        data = list(map(int, f.readline().split()))
+    
+    elif key[0] == "I":
+        n = int(input())
+        data = list(map(int, input().split()))    
+       
     assert len(data) == n
 
-    # calls function to assess the data 
-    # and give back all swaps
-    swaps = build_heap(data)
-
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
-
-
-    # output all swaps
-    print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
+    Heap.build_heap(data, n)
+    Heap.print_swaps()
 
 
 if __name__ == "__main__":
