@@ -37,7 +37,7 @@ class Heap:
             print(x[0],x[1])
     
 def main():
-    #key = input()
+    key = input()
     if key[0] == "F":
         fileName = input("Input file name:")
         #fileName = "test.txt"
