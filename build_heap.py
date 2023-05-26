@@ -40,7 +40,7 @@ def main():
     key = input()
     if key[0] == "F":
         fileName = input("Input file name:")
-        #fileName = "test.txt"
+        fileName = "tests/" + filename
         f = open(fileName, "r")
         n = int(f.readline())
         data = list(map(int, f.readline().split()))
